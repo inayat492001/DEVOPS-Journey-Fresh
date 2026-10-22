@@ -1,0 +1,576 @@
+
+                      Part A — Linux Basics & Navigation
+
+1.What is an operating system, and what role does Linux play?
+
+A: An operating system (OS) is system software that manages computer hardware and software resources, and provides common services for computer programs.
+   
+   Linux is an Open Source  operating system (OS), similar to Windows, macOS, or iOS, that manages the communication between software and hardware on a computer or 
+   device, enabling programs to run efficiently and reliably. The core of Linux is the kernel, which handles CPU, memory, and peripheral devices, forming the lowest    level of the OS.
+
+2.What is a Linux distribution? Name any three from the course material.
+
+A: 1.Ubuntu: A user-friendly distribution with long-term support and a large community. 
+
+   2.Kali Linux: Designed for cybersecurity tasks like penetration testing and ethical hacking. 
+
+   3.Debian: Known for its stability and often used as a base for other distributions. 
+
+These distributions cater to different user needs, from beginners to advanced system administrators and developers. Each distribution has its own package management system and desktop environment, providing flexibility and customization based on user preferences.
+
+3. Display the current directory path.
+
+A: pwd (Present working directory)
+
+4. Create a directory named linux-assessment inside your home directory.
+
+A: mkdir linux-assessment
+   
+   if you're currently in another directory, mkdir ~/linux-assessment creates the directory directly inside your home directory.
+
+5. Move into linux-assessment and confirm your location.
+
+A: cd ~/linux-assessment && pwd
+
+6. Inside linux-assessment, create directories named files, logs, and backup. 
+
+A: 1. cd linux-assessment
+   2. mkdir files logs backup
+   (or)  
+   mkdir ~/linux-assessment/{files,logs,backup}
+
+7. List contents including hidden files and detailed information.
+
+A: ls -a
+
+8. Move one directory level up, then return to linux-assessment.
+
+A: To move one directory level up and then return to linux-assessment, follow these steps.
+  Step 1: Move one directory level up
+  cd ..
+
+
+  .. represents the parent directory.
+  Step 2: Return to linux-assessment
+  cd linux-assessment
+
+
+  Step 3: Confirm your current location
+  pwd
+
+
+  Expected output:
+  /home/inayat/linux-assessment
+
+    (OR)
+   Enter all commands in same line
+
+     cd ..
+     cd linux-assessment
+     pwd 
+
+
+                             Part B — File & Directory Operations
+
+9. Create empty files app.log, users.txt, and notes.txt inside files.
+
+A: To create three empty files named app.log, users.txt, and notes.txt inside the files directory, use the touch command.
+ 
+ Step 1: Navigate to the files directory
+  cd ~/linux-assessment/files
+
+
+ Step 2: Create all three empty files
+ touch app.log users.txt notes.txt
+
+
+  Alternative: Create files without changing directories
+  
+   If you're currently inside linux-assessment, run:
+  touch files/app.log files/users.txt files/notes.txt
+
+   (Or)
+
+    use the shorter Bash command:
+   touch files/{app.log,users.txt,notes.txt}
+
+
+10. Add three lines of sample text to notes.txt.
+
+A: Add all three lines using one command
+      
+      printf "I am learning Linux commands.\nLinux is important for DevOps.\nI am practicing file management.\n" > notes.txt
+
+
+   Important: Difference between > and >>
+  Operator	          Purpose
+    >	                  Writes text, replacing existing content
+
+    >>	                  Appends text without deleting existing content
+
+    \n                    Enters next line
+
+11. Display notes.txt.
+
+A: cat notes.tx
+
+
+12. Copy notes.txt into backup.
+
+A: To copy notes.txt into the backup directory, use the cp command.
+Step 1: Copy the file
+If you're currently inside linux-assessment/files, run:
+cp notes.txt ../backup/
+
+
+Step 2: Verify the copied file
+ls ../backup/
+
+
+Expected output:
+notes.txt
+
+
+Step 3: Display the copied file
+cat ../backup/notes.txt
+
+
+Explanation
+Command	Meaning
+cp	Copy a file or directory
+notes.txt	Source file
+..	Parent directory (linux-assessment)
+../backup/	Destination directory
+Alternative: Copy from any location
+cp ~/linux-assessment/files/notes.txt ~/linux-assessment/backup/
+
+
+Linux assessment tip: The cp command copies a file without deleting the original.
+After copying, your directory structure will be:
+linux-assessment/
+├── files/
+│   ├── app.log
+│   ├── users.txt
+│   └── notes.txt
+├── logs/
+└── backup/
+    └── notes.txt
+
+
+✅ Remember: cp copies files, whereas mv moves or renames them.
+
+
+13. Move users.txt into logs.
+
+A: To move users.txt from the files directory into the logs directory,          use the mv command.
+Step 1: Move the file
+If you're currently inside linux-assessment/files, run:
+mv users.txt ../logs/
+
+
+Step 2: Verify the file was moved
+ls ../logs/
+
+
+Expected output:
+users.txt
+
+
+Step 3: Verify the original file is gone
+ls
+
+
+Expected output:
+app.log  notes.txt
+
+
+Explanation
+Command	Meaning
+mv	Moves or renames a file
+users.txt	Source file
+..	Parent directory (linux-assessment)
+../logs/	Destination directory
+Alternative: Move from any directory
+mv ~/linux-assessment/files/users.txt ~/linux-assessment/logs/
+
+
+Linux assessment tip:
+- cp → Copies a file; the original remains.
+- mv → Moves a file; it no longer exists at the original location.
+Your directory structure should now look like this:
+linux-assessment/
+├── files/
+│   ├── app.log
+│   └── notes.txt
+├── logs/
+│   └── users.txt
+└── backup/
+    └── notes.txt
+
+
+14. Create an empty directory named temporary, then remove it.
+
+A: To create an empty directory named temporary and then remove it, use the mkdir and rmdir commands.
+Step 1: Navigate to linux-assessment
+cd ~/linux-assessment
+
+
+Step 2: Create the directory
+mkdir temporary
+
+
+Step 3: Verify the directory was created
+ls
+
+
+Expected output:
+backup  files  logs  temporary
+
+
+Step 4: Remove the empty directory
+rmdir temporary
+
+
+Step 5: Verify the directory was removed
+ls
+
+
+Expected output:
+backup  files  logs
+
+
+Important: rmdir vs rm -r
+Command	Purpose
+mkdir temporary	Creates a directory
+rmdir temporary	Removes an empty directory
+rm -r temporary	Removes a directory and its contents
+Linux assessment tip: Use rmdir when the directory is empty. It's safer than rm -r because it won't accidentally delete files inside the directory.
+✅ Assessment answer (two commands):
+
+mkdir temporary
+rmdir temporary
+
+
+15. Create remove-me.txt and then delete only that file.
+
+A: To create a file named remove-me.txt and then delete only that file, use the touch and rm commands.
+Step 1: Navigate to linux-assessment
+cd ~/linux-assessment
+
+
+Step 2: Create an empty file
+touch remove-me.txt
+
+
+Step 3: Verify the file was created
+ls
+
+
+Expected output:
+backup  files  logs  remove-me.txt
+
+
+Step 4: Delete only that file
+rm remove-me.txt
+
+
+Step 5: Verify the file was deleted
+ls
+
+
+Expected output:
+backup  files  logs
+
+
+Important Linux commands
+Command	Purpose
+touch remove-me.txt	Creates an empty file
+rm remove-me.txt	Deletes the specified file
+rm -i remove-me.txt	Asks for confirmation before deleting
+rmdir temporary	Removes an empty directory
+Assessment answer (two commands):
+touch remove-me.txt
+rm remove-me.txt
+
+
+Remember: rm normally deletes files permanently without moving them to the Trash. Use rm -i when you want confirmation before deleting.
+
+
+
+16. Display the first two lines of notes.txt & Display the last two lines of notes.txt.
+
+A: To display the first two lines of notes.txt, use the head command.
+Step 1: Run the command
+If you're currently inside linux-assessment, run:
+head -n 2 files/notes.txt
+
+tail -n 2 files/notes.txt
+
+Step 2: Expected Output of Head
+I am learning Linux commands.
+Linux is important for DevOps.
+
+Expected Output of Tail
+Linux is important for DevOps.
+I am practicing file management.
+
+Explanation
+Command	Meaning
+head	Displays the beginning of a file
+tail    Displays the ending of a file
+
+-n 2	Displays only the first/last 2 lines
+files/notes.txt	Path to the file
+Alternative: From any directory
+
+head -n 2 ~/linux-assessment/files/notes.txt
+
+tail -n 2 ~/linux-assessment/files/notes.txt
+
+
+Linux assessment tip:
+- head -n 2 → First 2 lines.
+- head -n 5 → First 5 lines.
+- head → First 10 lines by default.
+✅ Assessment answer:
+head -n 2 files/notes.txt
+tail -n 2 files/notes.tx
+
+18. Search notes.txt for a word in your sample text.
+
+A: To search for a word inside notes.txt, use the Linux grep command.
+Step 1: Search for a word
+If you're currently inside linux-assessment, run:
+grep "Linux" files/notes.txt
+
+
+Step 2: Expected Output
+I am learning Linux commands.
+Linux is important for DevOps.
+
+
+The grep command displays all lines containing the word Linux.
+Step 3: Understand the command
+Command	Meaning
+grep	Searches for matching text inside files
+"Linux"	Word you want to search
+files/notes.txt	File to search
+Other useful grep commands
+# Case-insensitive search
+grep -i "linux" files/notes.txt
+
+# Show matching line numbers
+grep -n "Linux" files/notes.txt
+
+# Count matching lines
+grep -c "Linux" files/notes.txt
+
+
+Linux assessment tip: grep is widely used in DevOps for searching log files, identifying errors, and troubleshooting applications.
+
+19. Find every file named notes.txt under linux-assessment.
+
+A: To find every file named notes.txt under linux-assessment, use the Linux find command.
+Step 1: Run the command
+If you're currently inside linux-assessment:
+find . -type f -name "notes.txt"
+
+
+Step 2: Expected Output
+./files/notes.txt
+./backup/notes.txt
+
+
+Step 3: Understand the command
+Command	Meaning
+find	Searches for files and directories
+.	Start searching from the current directory
+-type f	Search only for files
+-name "notes.txt"	Find files with the exact name notes.txt
+Alternative: Search from any directory
+find ~/linux-assessment -type f -name "notes.txt"
+
+
+This searches the linux-assessment directory and all its subdirectories.
+Linux assessment tip:
+
+- -type f → Find files only.
+- -type d → Find directories only.
+- -iname → Search without case sensitivity.
+
+
+                          Part C — Text Processing, Pipes & Redirection
+
+20. Count lines, words, and characters in notes.txt.
+
+A: To count the lines, words, and characters in notes.txt, use the Linux wc (Word Count) command.
+Step 1: Run the command
+If you're currently inside linux-assessment:
+wc -l -w -m files/notes.txt
+
+
+Step 2: Understand the command
+Option	Meaning
+wc	Word Count command
+-l	Counts lines
+-w	Counts words
+-m	Counts characters
+files/notes.txt	File to analyze
+Step 3: Example output
+3  16  94  files/notes.txt
+
+
+The numbers represent:
+- 3 — Number of lines
+- 16 — Number of words
+- 94 — Number of characters
+These are example values. Your actual results depend on the contents of your file, including newline characters.
+Alternative: From any directory
+wc -l -w -m ~/linux-assessment/files/notes.txt
+
+
+Important Linux assessment tip
+- wc -l → Count lines
+- wc -w → Count words
+- wc -m → Count characters
+- wc -c → Count bytes
+Remember: -m counts characters, while -c counts bytes. They can differ when a file contains Unicode characters.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
