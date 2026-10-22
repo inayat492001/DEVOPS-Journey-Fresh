@@ -1,0 +1,361 @@
+sed [Stream line editor]:
+--> It is primarily used for processing and modifying text streams.
+
+Ex:  sed 's/developer/tutor/g' students.txt
+Important: Does sed modify the original file?
+No. By default, sed displays the modified output without changing the original file.
+
+Here: s- search, g-replace 
+
+To permanently modify the file:
+sed -i 's/Hyderabad/Bangalore/' students.txt
+
+Inode:
+File type
+Permissions
+Owner UID
+Group GIP
+File Size
+Time Stamps etc
+
+Links:
+
+Hard Link:
+A Hard Link is an exact copy/mirror of the original filename that  points directly to the "Inode" on the link.
+
+Syntax: ln original.txt hardlink.txt
+
+Soft Link:(Symbolic Links)
+A soft link is a "special independent file" that points to the text path of "another file name" rather that pointing to inode.
+
+It has it own unique inode number.
+
+Syntax: ln -s 
+
+ex: ln -s org.txt softlink.txt
+
+=>Constraints:
+
+-->Hard links:
+>Cannot spam/use accross the file systems
+>Cannot link to the directories
+>No independent permission
+
+--> Soft Link:
+>Vulnerable and get broken easily
+> requires a storage overhead (require own inode and a small amount of disk space)
+
+
+==>Networking and processing command:
+
+>ipa, id addr show, ifconfig: It will display the Ip(Internet Protocol) address of the machine.
+
+Internet Protocol is a unique string of numbers assigned to any device that connectes to a network.
+
+36. Ping: (This is called handshake method)
+-> It checks "Can my machine communicate with other hosts" 
+->ping -c it will send 10 packets and revives 10 and it establishes a stable connection.
+
+
+==> SYSTEM MONITORING COMMANDS
+37. top (real time process monitoring)
+->It will return a continiously updating screen with
+
+>CPU Usage
+>Memory Usage
+>Process 
+>Process ID's
+>Load average
+
+38.htop (h: Human readable format)
+
+(Disk free) df-> is used for checking used and available "filesystem space"
+
+ex: df -h
+
+39. du (Disk Usage)
+  
+ df--> Tells you about filesystem usage
+ du--> helps to determine which directory/files are consuming space.
+
+Syntax: du -sh (Here, s-> Short Summary, h-> Human Readable format)
+
+        du -sh * (Here, *-> helps to show current directory)
+
+
+************************************************************
+==> Absolute Path
+
+-Always start with the root directory
+-Must begin with a forward slash(/), ~
+-Independent, works identically from anywhere
+
+==>Relative Path
+
+-Starts from the present working directory(pwd)
+-Never begin with a forward slash(/)
+-Dependent, changes meaning based on where you are.
+
+*************************************************************
+
+Date:05-10-2026
+
+40. wget : It is primarily used to download files from the internet (It will save in current directory)
+
+-  wget -O new.zip :  Used to save as file from the internet "new.zip" is file name
+
+-  wget -c: Resumes downloading
+
+41.curl : Curl works similar to wget but it also retrives the https response/ In simple words it will talk to this URL/API and print the response.
+
+curl -I www.example.com
+-- We can do API testing.
+curl -X 
+
+42. DNS: Domaine Name System is translating human-readable website names to machine readable IP address
+--> Computer and servers communicate using "IP addresses" and numbers are hard to remember. DNS matches/maps those names with correct numbers.
+
+nslookup__> nslookup google.com
+
+--if it is asking to download use command : sudo apt install dnsutils
+
+43. System Logs in Linux: System logs in Linux are text files that records events, errors and live activities happening within the operating systems 
+application/ programs.
+
+Modern Approach:
+                   Journalctl --> view all the logs
+                   Journalctl -f --> Views live logs
+                   Journalctl -n --> To view specific number of logs
+Traditional Approach:
+                      /var/log
+
+
+44.lsblk => It displays the information about the disks and stronge devices in your Linux machine.
+
+=> lsblk -f (Human readable format)
+
+45.free =>Displays RAM and swap usages
+   free -h (Human Readable Format)
+
+
+  RAM
+   |_Used
+   |_Available
+   |_Free
+
+
+46.uptime => It displays the current time
+          => How long the system has been resuming
+          => Number of logged in users
+          => Load average (1st-min, 5th-min, 15th-min)
+
+47. watch => It is used to rum a command repeatedly
+
+Ex: watch df -h
+    watch du -sh
+watch -h 10 du -sh
+
+48.PIP Symbol(|)
+
+ The data flows from left to right the terminal takes whatever "commands" prints out and passes it as the new input for "command 2" to process.
+
+49. PS (Process Status):
+
+It displays processes running in your current terminal session.
+
+SYNTAX: ps -ef (Every process running on the system with full details)
+
+SYNTAX: ps auc (Every process on the system including CPU and memory usage)
+
+It displays: -PID: Process ID
+ -%CPU %Memory
+-TTY : Process running in background
+
+--> kill pid: Request the program to for safe kill, save it state & exit nicely.
+--> kill -9 pid: Force kill, instantly forces the program to stop completely.
+--> pkill: Kill any process by their names
+--> pkill -9: clears all chrome 
+
+==>Ports on Linux
+
+ports are "logical endpoints" used by the networking protocols (TCP/UDP) to route data traffic to specfic application or services on a machine
+
+=> IP address identifies a computer on a network whereas the port number identifies specific program running on that computer.
+ 
+Ex" IP address : street address of apparment 
+    Ports: apartment number
+
+PROTOCOl/Service              port            Purpose
+
+ssh(Secure shell)              22            Secure login into machines/VMs
+
+HTTP(web)                      80            Unsecured web traffic
+
+HTTPS (Web secure)             443           Encrypted web traffics
+
+FTP (File transfer protocol)   20,21         File transfer between systems 
+
+smptp(simple mail ransfer protocol) 25       Send emails
+
+DNS                             53           resolves domain names to IP addresses
+
+MYSQL DB                       3306          MYSQL Database connections
+
+Prome thews                    9090          Monitoring server
+
+Grofana                        3000          Viisualization dashboard
+
+Jenkins                        8080          CI/CD automation
+
+
+
+** Important file systems in Linux:
+
+  Path                                  Purpose
+ /                                  Root directory - top of Linux filesystems
+/home/                              Default directory of normal user data
+/etc/                               Confiiguration files for system and applications
+/etc/passwd                         Stores user account information
+/etc/groups                         stores group definition
+/etc/sudoers                        Controls sudo privilages
+/etc/hosts                          Local hostname resolutions
+/etc/fstab                          mount points and filesystems at boot
+/var/log                            Contains all system & applicaiton logs
+/var/log/syslog                     System logs (Ubuntu/Debian)
+/opt/                               Optional or third part applications
+/bin                                Essential system binaries
+/sys                                Kernal and devices information interface
+/tmp.                               Temporary storage (This will be cleared on root)
+
+50. ss : To view opens ports on your Linux machine
+
+ss -tulpn
+
+t --> TCP ports
+u --> UDP ports
+l --> Linking ports
+p --> Shows processes
+n --> numeric format
+
+******************** Date:07-10-2026 ********************
+
+-> Cron Jobs in Linux:
+
+*Cron: A Cron is a time-based Job scheduler in linux 
+
+-> It allows us to automatically execute:
+
+    -Commands
+    -Scripts
+    -Backups
+    -Maintenance tasks etc
+
+Example:
+ A server has application logs:
+
+path: /var/log/myapp
+
+-- Overtime logs become bery large
+-- We create a cleanup script ->  script.sh / cleanup.sh
+-- But we have to run this manually everytime
+
+3) CronJob Format:
+*-------(Commands) 
+ 
+*------>Day of the week
+
+*---------> Month
+
+*------------>Day of Month
+
+*-------------------> Hours
+
+*--------------------------->Minutes
+
+Ranges:
+
+Minute (0-59)
+
+Hour (0-23)
+
+Day of the months (1-31)
+
+           Month (1-12)
+Day of the week (0-6)
+
+(*) ---> Every possible value
+
+Ex: 30 22 *  *  *
+    m  h  d M  (Every day of the week)
+ 
+ 0 * * * * --> (Every hour)
+
+ 0 10 * * 0 --> (Every Sunday 10.00AM)
+
+
+
+ ************(Check website in Crontab guru.com)
+  
+Crontab:
+
+-> This is the place where we actually configure cron jobs.
+
+-- Cron tab -e (To edit your cron jobs)
+
+-- Cron tab -l (To list your cron jobs)
+
+=> Scripts in Linux:
+
+-> In linux, script is a plain text file containing a sequences of commands that are execued line by line by an interpreter.
+
+-> Linux uses a CLI interpreter called (Bash or zsh).
+
+-> Anatomy / Workflow:
+
+1. "Shebang" : #!/bin/bash
+
+-> The very fist line of a script tells linux which interpreter to use
+
+2. Commands:
+
+       The actual interactions you want to execute
+
+3. Executable Permissions: chmod + x file_names
+
+=> Package managment on Linux:
+
+-- It is a centralized system that automates the process of finding installing, updating configuring and removing software applications on a Linux environments.
+
+
+Debian                                       RHEB                                    Arch Linux
+apt or apt-get                            dnf or rpm                                   pacman
+sudo apt install                          dnf install                                 pacman install
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

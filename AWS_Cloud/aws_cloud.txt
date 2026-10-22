@@ -1,0 +1,319 @@
+==> Cloud Computing:
+
+
+  Cloud computing is the delivery of computing services such as servers, storages, databases, networking, software, analytics. "Over the internet" with pay as you go pricing.
+
+
+-- Very low upfront cost.
+-- Faster innovation
+-- Better Disaster Recovery
+-- Global reach
+
+
+--> Limitations of cloud computing:
+ 
+ - Requires reliable internet connectivity
+ 
+ - Cost can increases if resurces are not managed properly
+ 
+
+
+                        Traditional                                           Cloud
+                        -----------                                           -----
+
+-- Hardware           Company buy services                                AWS owns the hardware
+
+-- Setup time         Weeks or months                                     Within Minutes
+
+-- Cost Model         Large upfront cost                                  Pay-as-you-go
+
+-- Scaling             Manual and Slow                                     Automatic and on-demand
+
+-- Maintenance        Company handles repairs & Upgrades                  Aws handles physicaal Infrastructure
+
+==> Types of Cloud Services:
+
+1) Iaas (Infrastructure as a Service)
+
+--> Aws gives you basic Infrastructure 
+   : Virtual Machines,Storage, Network
+
+You manages: OS, runtime, Security Configs
+
+Aws Manages: Physical Services, Networking hardware storage hardwares
+
+2) PaaS (Platform as a Services)
+
+--> Aws gives you a platform to run applications without managing servers.
+
+You Manages -> Application code, configs data
+
+Aws Manages -> Run time, servers, scaling infra.
+
+
+3) SaaS (Software as a Services):
+
+--> Aws or another provider gives you a complete application 
+
+--> You Manage: User settings Data managment 
+--> Aws Manager: Application, Servers, Infra
+
+Ex: Gmail, MS 365, Zoom and etc..
+
+
+=> Types of models in cloud:
+
+1) Public Cloud:
+ -> Resources are managed and owned by cloud provider and share among many customers.
+
+   Ex: Aws public cloud
+      
+2) Private Cloud:
+
+-> Cloud Infrastructure used exclusively by organization it may be hosted on premises/ provided facility.
+
+Ex: Bank running a private cloud in its own data center.
+
+
+3) Hybrid Cloud:
+
+-> Combination of both publc and private infrastructure connected together.
+
+Ex: An application runs on -premises, but during festival time it bursts into AWS for extra capacity.
+
+4) Multi Cloud:
+
+-> Using more than one "public cloud provider"
+
+Ex: Application runs partly on Aws, partly on Azure
+
+==> Aws Infrastructure:
+
+-> Aws is a global network of data centers
+
+
+   -Regions: A Region is a geographic are where AWS has multiple data centers
+   
+   Ex:
+          ap-south-1 -> Asia pacific, Mumbai
+        
+          us-east-1 -> US East, North Virginia
+         
+          eu-west-1 -> West Europe, Ireland
+
+
+
+************************Dt:21-10-2026****************************
+
+ 
+ 1) IAM (Identitiy and Access managment):
+
+                   Company
+                      |
+   User-1 --    [AWS-Account] /---User-2
+                              \________________User-3        
+
+              Root- ID
+              -------
+-> No one knows who did what.
+
+-> Evryone has full admin access.
+
+->If password is hacked entire AWS accounnt is compromised.
+
+->Developers may accidently delete production servers.
+
+
+IAM: IAM is a "Global AWS service" that manages identities and permissions. If users JSON policies to define allowed or denied actions on AWS resources.
+
+=> It supports users, groups, roles, managed policies MFA (Multi Factor Authentication).
+
+[KEY : VALUE]
+
+Benifits: It prevents unlimited access 
+          Allows AWS services to communicate securely
+          Control access across accpounts and services
+          
+
+  Authentication & Authorization
+
+Authentication: means verifying the user identity
+
+Ex: username & password
+   
+    MFA Code
+  
+    Access Key etc
+
+Authorization:
+
+=> Authorization means deciding whether the authenticated identity can perform an action.
+
+Ex: User : developer 1
+
+ user "developer 1" is authorized
+
+Is "developer 1" allowed to create a Virtual Machine?
+
+
+What is IAM User?
+
+=> An IAM user is a permanent identity.
+
+- People who needs console access
+
+-People requires some keys
+
+=> Recommended to use IAM with MFA.
+
+
+ 
+
+
+2) IAM Groups:
+
+=> An IAM Group is a collecttion of users.
+
+Instead of attaching policies to each user individually attach policies to a group.
+
+Ex: Group : Developers
+
+   Users: Merge Alice
+
+         John Bob
+  Policy : AWS create VM
+
+3) IAM Roles:
+
+=> An IAM role is an identitiy that can be assumed tempororily 
+=> Roles are used in between Acess services
+
+Note: A user has long term creds
+ 
+      A role provides frequency creds
+
+
+
+                           Policies
+                          ----------
+                        /           \
+         AWS Managed Policies                  User Managed policies
+
+-> AWS manager policies                      Created & Managed by the users
+
+->Created and maintained by AWS              Suitable for production
+
+-> Ex:  Admin Access                         Users must maintain them
+        -Read Only      
+        -Write Only
+
+
+->Easy to use                                Mistakes can cause denial or over-permission
+
+-> Updated by AWS
+
+
+
+In-line Policiy:
+
+=> An Inline policiy is embeded directly into a users, group or a role.
+
+ Ex: -Accesing permission for a user
+
+-> Recommended to avoid incline policies for production environment
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
