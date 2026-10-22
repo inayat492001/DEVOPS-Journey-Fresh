@@ -2,7 +2,7 @@
 
 **1.Git Work flow:**
 
-![](media/image1.png)
+![](git-github-images/media/image1.png)
 
 **2. Step 1 — Initialize your fresh local repository**
 
@@ -210,7 +210,7 @@ Let's learn it from the beginning, with practical Linux examples.
 
 Before learning git restore, you need to understand these three areas.
 
-![](media/image2.png)
+![](git-github-images/media/image2.png)
 
 git restore primarily operates on your working directory and staging
 area. It doesn't automatically change GitHub.
@@ -263,7 +263,7 @@ staging area.
 If you haven't staged anything new, that will normally be the version
 from your last commit.
 
-![](media/image3.png)
+![](git-github-images/media/image3.png)
 
 Warning⚠️: git restore linux.txt discards unstaged changes to that file.
 Make sure you no longer need them.
@@ -326,11 +326,11 @@ This discards both the staged and unstaged modifications to the file.
 
 Choose the command to understand which area Git modifies.
 
-![](media/image4.png)
+![](git-github-images/media/image4.png)
 
-![](media/image5.png)
+![](git-github-images/media/image5.png)
 
-![](media/image6.png)
+![](git-github-images/media/image6.png)
 
 **7. Case 4 — Restore a deleted file**
 
@@ -373,7 +373,7 @@ Then:
 
 gitrestore--source=origin/Linux\_Notes--Linux\_Notes/linux\_assignment\_questions.txt
 
-![](media/image7.png)
+![](git-github-images/media/image7.png)
 
 After verifying the file, you can stage and commit:
 
