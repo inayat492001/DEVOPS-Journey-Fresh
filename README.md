@@ -1,4 +1,2 @@
-# DEVOPS-Journey-Fresh
-
-**Inayat Nawaz**
-## Inayat Nawaz
+#DEVOPS-JOURNEY-FRESH
+## Welcome to DevOps Journey
