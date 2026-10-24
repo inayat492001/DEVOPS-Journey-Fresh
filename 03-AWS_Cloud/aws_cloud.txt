@@ -224,6 +224,56 @@ In-line Policiy:
 
 
 
+*******************Dt:22-10-2026**********************
+
+=> Json Policies:
+
+ {"version" :----> Policies
+  "Statement" :}
+
+ { sid : "Statement ID"
+   Effect : "Allow",
+   "Action":
+    "Resource" :
+
+
+
+-> Version: Policy language version usually: 2012-10-17
+
+-> Statement: One or more permission rules.
+
+-> Effect: Allow or Deny
+
+-> Action: Api action ALLOWED OR DENIED
+
+-> Resources: AWS resource affected
+
+
+
+=> AWS Computing Services:
+
+--> Amazon EC2: (ECC: Elastic compute cloud) (Region- Specific)
+
+An EC2 is a virtual server in the cloud
+
+digital computer created by a software inside a physical servers.
+
+Software: VM ware, Workstation, Hypervisor, Oracle VM Box
+
+
+2) EC2 Components:
+
+AMI: Azure Machine Image
+
+SG: Security Groups
+
+Instance Type:
+
+Key pairs:
+
+VPC: Virtual Private Cloud
+
+
 
 
 
