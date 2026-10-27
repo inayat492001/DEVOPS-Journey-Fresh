@@ -276,6 +276,36 @@ VPC: Virtual Private Cloud
 
 
 
+*************************Dt:26-10-2026************************
+
+   EC2
+--------
+   |_AMI (Ubuntu, Amazon Linux, ws, etc..)
+   |_Key pair
+   |_VPC
+   |_Instance Type
+
+
+EBS: (Elastic BLock storage)
+
+=> It is a high performances persistent block storage service designed for use with Amazon EC2.
+
+
+
+-> Virtual Hard drive
+-> Persistant data
+-> Az specific
+
+
+
+
+
+
+
+
+
+
+
 
 
 
