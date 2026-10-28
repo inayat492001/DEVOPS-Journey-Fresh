@@ -346,6 +346,106 @@ requests
 -Virtual Application 
 -Networking Security tools
 
+******************Dt:28-10-2026*****************
+
+
+=>ALB Components:
+
+1) A Load Balancer DNS Name:
+
+-> When an ALB is created, AWS gives it a DNS Name
+
+Ex:- my-alb123 ap-south1-amazon aws.com
+
+2) Listner:
+
+->A listner checks for connection request on a port and protocol.
+
+Ex:-  Protocol                  port
+      HTTP                       80
+ 
+Listner = port + protocol + Action-->(Usually sends traffic to a target group)
+
+3) Target Group:
+
+=> It is a logical group of targets.
+
+Ex:- EC2 -i   -|
+     EC2 -ii  -|-->Traget Group
+     EC3 -iii -| 
+
+4) Health Checks:
+
+=> ALB periodically checks whether targets are healthy or not.
+
+- ALB sends request to:
+  http:// <EC2-PUBLIC_IP:80/
+-> If respond is "200" /healthy then target is healthy.
+
+->If it fails ALB stops sending traffic to it.
+
+
+            ---->ALB Workflow<----
+               User's Browser
+                       |
+                    Internet 
+                       |
+                ALB DNS Name->(Security Group allows Inbound rule 80 HTTP 0.0.0.0/0)
+                       |
+                ALB Listner. port 80
+                       |
+                 target group
+                       |
+                       +_>EC2 -A, 80
+                       +_>EC2 -B, 80
+                       +_>EC2 -C, 80
+
+=> ALB SG:
+                ALB SG
+                   |
+           Allows HTTP/HTTPS from internet
+                   |
+             EC2 Target Security Group
+                   |
+           Allows HTTP only from ALB Security Group
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
