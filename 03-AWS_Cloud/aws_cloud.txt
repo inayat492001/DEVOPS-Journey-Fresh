@@ -297,6 +297,54 @@ EBS: (Elastic BLock storage)
 -> Az specific
 
 
+**********************Dt:27-10-2026******************
+
+=> EBS:
+    |_ Virtual Hard disk
+    |_Persistant block storage
+    |_Az Specific
+
+
+=> ELB (Elastic Load Balancer)
+
+-- ElB is an AWS services which automatically distributes the incoming traffic across multiple targets
+
+
+==Traffic=>[EC2] => Lag, Latency
+
+Traffic => ELB -| 1. EC2
+                | 2. EC2
+
+
+Health checks:
+
+
+                    ELB
+                 /      \
+       1. Classic Load Balancer
+       2.ALB (Application Load Balancer)
+       3. NLB (Network Load balancer)
+       4. GLB (Gateway Load Balancer)
+
+1. Classic Load Balancer
+
+- It's a Traditional Load Balancer
+
+2.ALB (Application Load Balancer)
+
+** HTTP/HTTPS
+requests
+- websites, API's
+
+3. NLB (Network Load balancer)
+
+-TCP/UDP
+-Extreme performances
+
+4. GLB (Gateway Load Balancer)
+
+-Virtual Application 
+-Networking Security tools
 
 
 
