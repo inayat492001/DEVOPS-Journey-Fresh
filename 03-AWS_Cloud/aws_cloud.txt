@@ -409,10 +409,36 @@ Ex:- EC2 -i   -|
                    |
            Allows HTTP only from ALB Security Group
 
+*****************************Dt:02-11-2026*********************************
 
+-> ASG (Auto Scaling Group):
 
+-- It automatically launches or terminates server instances to ensure your app has the exact amount of computing power it needs to handle current user demand.
 
+-- Core components:
+   ----------------
+ 1) Minimum State:- The lowest number of instances that must be always running.
 
+ 2) Desired Capacity:- Standard number of instances you want under normal conditions.
+
+ 3) Maximum State:- Absolute number of instances the group can scale up to.
+
+                         
+                                       ASG
+                                        | (Uses)
+                                  Launch Template
+                          (Ubuntu + Nginx + User Data etc)
+                                        |
+                                  EC2 Instances - 1
+                                  (Load Increases)
+                                        |
+                                 Cloud Watch [CPU metric rises]
+                                        |
+                                    ASG Triggers
+                                        |
+                                  EC2 -2 launched automatically
+                                        
+                              
 
 
 
