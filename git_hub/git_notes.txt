@@ -1,0 +1,290 @@
+===>GIT and GIT HUB
+
+-> Project
+
+       |_ app.txt
+       |_index.html
+       |_deployment.txt
+
+=> "The previous version was better can you restore it?"
+
+- project_restore/
+
+
+Git resolves the issue by keeping tracks of changes to your project over time by: 
+-Keeping Track changes
+
+-Sees who changes what
+
+-Can go back to older versions
+
+-> Git: It is a distributed version control system used to track changes in files and manage differen versions of projects.
+
+==> Version Control:
+
+-> A system that keeps track of different version of your code.
+
+Version 1
+    |
+Version 2
+    |
+Version 3
+
+-You can move between these versions if needed.
+
+==>Distributed: Git doesn't requiire one central server just to work.
+
+
+Developer-A
+        |_Git Repo
+
+Developer-B
+        |_ Git Repo
+
+==> Every developer's Git repository can contain projects history.
+
+
+==> Git  ---> Version control tool
+==> Git hub--> It's a "cloud platform" for hosting Git repositories and collaborating around them.
+
+
+-->Git:
+> Version Control System
+>Runs Locally
+>Tracks code changes
+>Works without internet
+>Open source
+
+
+-->GItHub:
+>Cloud based platform
+>Runs Online
+>Hosts Git repository
+>Accessed through internet
+> Service/ Platform
+
+*******************************
+
+1. git init(Initialize): To initialize an empty git Repository.
+
+2. git status: It will return whether the files are been tracked or untracked.
+
+3.git add: Add the files to the "staging area"
+
+staging area=> You decide which  changes should be included.
+
+4.git commit -m"": It works as a saved check point for your project.
+
+5.git push: 
+
+
+**********Date:13-10-2026*******
+
+==>Basic Git Workflow:
+Working Directory
+    |
+git add
+    |
+Staging Area
+    |
+git commit
+    |
+Local Repository
+    |
+git push
+    |
+Git Hub Repository
+
+1) Working Directory :
+=> This is the directory when you actually create & modify files.
+Ex: my_project/
+       |_ app.txt
+       |__index.html
+       |_ app.js
+The change is currently in your working directory.
+
+2) Staging is the stage where you decide which changes should be included next
+
+* .git/ (Hidden Folder)
+
+It contains information that Git needs to manage the repo including History and internal repo data.
+
+* git add filename (To track specific file)
+*git add. (To track all files)
+*git config --global user.name "user name"
+*git config --global user.email "emailid@gmail.com"
+To check config => git config --global --hit
+
+3) Local Repository:
+=> It is the stage where you permanently record the staged changes as a commit/
+
+*When we do git init we will get (master) at last which says its connected by git.
+
+**git commit -m "message"
+
+** git log:
+=>It is used to display the commit history
+=> commit id
+=> author name
+git log --online:
+Shows lates commit in one line
+==> git branch -m main:
+It will rename the branch from (master) to (main)
+=> git remote -v:
+This displays the remote repository URLs connected to your local Git repository.
+
+*******************Dt:15-10-2026****************
+
+Git Branching:-
+=> A branch is a separate line of Development
+=> Developers can work on features independently and combine the changes later.
+
+                                      Main[Stable Code]
+                                        |
+            -----------------------------------------------------------------
+           |                              |                                  |
+      Feature Login                  Feature Home                   Feature Profile Page
+
+
+Ex:-   Git push origin
+       ^
+       |_ Feature Login
+                   |_ app.js
+                   |_Index.html
+                   |_Html     ___ It was pushed to Main
+                   |_login.js                      |_aap.js
+                                                   |_index.html
+                                                   |_style
+
+*Each Branch can have its own commits The changes can be recived and merged later.
+
+* Git Branch: List local branches
+** git branch -m 
+         
+
+
+
+*PR(Pull Request)
+
+=> A PR is a request to review and merge changes from one branch into another on Github.
+
+**Flow of a PR:
+
+Create a brach
+      |
+Make changes
+      |
+   Commit
+      |
+ Push on the Same branch on GitHub
+      |
+  Open a PR
+      |
+Add Reviews
+      |
+    Merge
+
+
+--> Git Pull: Used to download changes from a remote repository and immediately integrate them to your current local brach.
+
+git merge: Combines histories from two different branches into your current working branch.
+
+* git switch feature B
+* git merge feature A
+
+
+*****************Dt: 15-10-2026************
+
+git branch -a 
+
+==> list all the branches (remote+local)
+
+* Merge Conflict 
+=> A merge conflict happens when two branches change the same part of the same file.
+
+=>Git doesn't know which version to keep So it asks us to decide.
+
+<<<<<HEAD -> The version from the branch you are currently on
+
+===== Spectator between two versions.
+>>>>> feature -a version coming from the branch being merged.
+
+==> Strategies
+1. Short lived branches
+=>Developers are encouraged to write small features and merge them quickly
+2.Frequent merges => Developers are required to pull latest changes from main daily.
+
+*Git Clone:
+
+-> It is used to target an "existing remote repository" and download a full copy of its history, files and branches onto your "local repo".
+
+*****************Dt: 16-10-2026************
+
+->.git restore:
+    Undo to the changes before committing
+  Ex:
+      You edited a file and added to the staging area, but the changes of the file are wrong as restore you can get back to previous state of file.
+
+-> git revert:
+   => Undo a commit safely
+=> This is a especially used when the commit is already pushed to github
+=>It does not erase the old commit Instead, It creates a new commit that reverses the effect of old commits.
+
+-> git fetch:
+=> "fetch" downloads information from GitHub but does not change your current files get.
+
+
+->git diff:
+=> It shows the difference between files in both staged and Unstaged
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
