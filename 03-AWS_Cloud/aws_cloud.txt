@@ -438,7 +438,129 @@ Ex:- EC2 -i   -|
                                         |
                                   EC2 -2 launched automatically
                                         
-                              
+ ***************************Dt:03-11-2026******************************
+
+No Notes Today      
+
+ ***************************Dt:04-11-2026******************************
+
+=> Aws S3 (Simple Storage Services)
+
+-> Amazon S3 is a "Object Storage" for files, Images, Logs, Backups and application data.
+
+Before S3:
+
+  -> Hard disks    |     Limited Accessibility
+  -> File Servers  |     Hardware Failures
+  -> Backup tapes  |     Difficult to Scale
+
+
+
+=> Core concepts of S3:
+
+1) Bucket:
+ 
+ -> A bucket is a top-level container in S3.
+
+ -> Bucket name is global, but it conents are regional.
+
+
+2) Object:
+
+  -> An objecct is a file stored in S3.
+It contains:
+
+       1.Object Data
+       2.Meta Data
+       3.Version ID
+       4.Key(Reference path 27:30)
+
+3) Key:
+ 
+ -> The key is the full name/path of object inside the bucket.
+
+Ex:- images/banner.png
+
+4) Storage Classes:
+
+ S3          Standard                  Frequently Accessed Data
+
+
+ S3         Intelligent-Tiering        Reads Access Pattern
+ 
+
+ S3         Standard- IA               Infrequently accessed data, rapid retrival
+
+
+ S3         Glacier                    Long term Archives, Lowest Cost, Slowest retrival
+
+
+
+5) Versioning:
+
+-> Versioning Keys multiple versions of the same object.
+
+Ex:- practice.txt V1
+   
+     practice.txt V2
+
+-> It helps in : accidental deletions
+    
+               : Recover Old Files
+
+               : Track changes
+
+6) Lifecycle Rules:
+
+-> Life cycle rules automate object movement or deletion.
+
+       
+                   Standard S3
+                       |    After 30 days move to 
+                   Standard IA
+                       |    After 90 days move to   
+                   S3 Glacier 
+                       |    After 365 days
+                   Delete It
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
