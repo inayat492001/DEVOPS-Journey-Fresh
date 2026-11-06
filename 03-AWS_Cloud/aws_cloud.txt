@@ -526,6 +526,161 @@ Ex:- practice.txt V1
 *************************Dt:05-11-2026************************
 
 
+1) IP Address: An IP Adress is a unique numeric address assigned to a device or a network.
+
+-> It allow devices to find and communicate with each other.
+
+-> Without an IP address, a computer does not know where to send traffic.
+
+
+a) ipv4:
+
+-> ipv4 is the older and still widely used addressing system.
+
+-> It has 4 numbers seperated by data.
+
+Ex: 192.168.1.10
+   --|- --|- |--|-
+ 1st octet
+ 2nd octet
+ 3rd octet
+ 4th octet
+->Each octet has a range of : 0 to 255
+
+
+-> About "4.3 billion" IP addresses
+
+2) ipv6: (Its length is upto 128bit)
+
+-> ipv6 was ceated because ipv4 address are limited
+
+Ex:- 2001:db8:ffo ---etc
+
+-> ipv6 use hexadecimal numbers seperately by colons
+
+-> The addresses are extremely large almost impossible to exhaust.
+
+
+2. 1) Public IP:
+
+-> A public IP address is reachable directly over the internet.
+
+Ex:- 20.10.0.30
+
+-> If a server has public IP users can reach it, depending on firewall/SG rules.
+
+2) Private IP address:
+
+-> A private IP is used inside a private network, It is not directly reachable from the internet.
+
+Ex:- 10.1.2.102
+
+ EC2 Instance --> Public IP --resolve into DNS---> my app.com
+                  (Dynamic)
+
+-> Elastic Ip: It is a static IPV4 address in AWS that stays assigned untill you explicitly release it.
+
+3) Subnet (Sub network): Logical seperation
+
+-> A subnet is a smaller network inside a larger network
+
+Ex: Building = large network
+
+    Floor   = subnet
+
+    Room    = Device/ IP address
+
+=> Devices on same floor can communicate easily
+
+=> (Router / subnet routing)
+
+
+
+
+3. Classical IP Address:
+
+=> Classical IP addressing is the old way of dividing ipv4 address into groups called classes:
+
+(A,b,B,C,D)
+
+Range of ipv4: 0.0.0.0 to 255.255.255.255
+
+1) Class A: It uses first octet as network part
+
+1.0.0.0 to 127.255.255.255
+-
+|--> Network address
+
+Remaining three are Host address
+
+2) Class B: It uses first two octect as network part.
+
+128.0.0.0 to 191.255.255.255
+
+network = 16 bits
+host = 16 bits
+
+3) Class C: It uses firs 3 octet as network part.
+
+ 192.0.0.0 to 223.255.255.255
+
+ 24 bits = network
+
+ 8 bits = hosts
+
+**) CIDR (Class less inter domain routing)
+
+--> Class fuel addressing always had fixed boundaries.
+
+Ex: Class C --> /24
+
+But companies needed: /126, 127.
+
+-> CIDR was the slash notation.
+
+Ex: 192.168.0.1/24
+    ------      --
+      |          |_ Network Size
+    IP Address
+
+32 bits -24(Network bits) = 8 bits(host) -> 2 power m
+
+
+=> AWS reserve subnet IP reservations:
+
+  First 4 addresses
+
+  Last address
+
+ 10.0.1.0
+ 
+ 10.0.1.1
+
+------- till 255
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
